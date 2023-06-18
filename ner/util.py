@@ -3,16 +3,15 @@ import argparse
 import torch
 
 def get_args():
-    print("jihi")
     parser = argparse.ArgumentParser(description='Train Ner Model')
     parser.add_argument('--scenario', type=str, default='train')
     parser.add_argument('--tag_type', type=str, default='ner')
     parser.add_argument('--tag_format', type=str, default='BIO')
     parser.add_argument('--hidden_size', type=int, default=256)
     parser.add_argument('--data_folder', type=str, default='./data/')
-    parser.add_argument('--train_path', type=str, default="./data/train_intents.json", help='Path to the training data')
-    parser.add_argument('--valid_path', type=str, default="./data/valid_intents.json", help='Path to the validation data')
-    parser.add_argument('--test_path', type=str, default="./data/valid_intents.json", help='Path to the test data')
+    parser.add_argument('--train_path', type=str, default="./data/train_slots.json", help='Path to the training data')
+    parser.add_argument('--valid_path', type=str, default="./data/valid_slots.json", help='Path to the validation data')
+    parser.add_argument('--test_path', type=str, default="./data/valid_slots.json", help='Path to the test data')
     parser.add_argument('--converted_train_path', type=str, default="./data/train_slots.txt", help='Path to the training data')
     parser.add_argument('--converted_valid_path', type=str, default="./data/valid_slots.txt", help='Path to the validation data')
     parser.add_argument('--converted_test_path', type=str, default="./data/test_slots.txt", help='Path to the test data')
