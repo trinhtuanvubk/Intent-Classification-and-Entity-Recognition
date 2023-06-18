@@ -1,6 +1,3 @@
-import argparse
-import json
-
 import torch
 from sklearn.metrics import accuracy_score
 from sklearn.preprocessing import LabelEncoder
@@ -68,8 +65,8 @@ class Trainer:
                 valid_accuracy = accuracy_score(valid_labels, predicted_labels)
                 print(f"Epoch {epoch + 1}/{epoch} - Valid Accuracy: {valid_accuracy:.4f}")
 
-        torch.save(self.model.state_dict(), './checkpoints/model.pt')
-        print("Checkpoint saved to './checkpoints/model.pt'")
+        torch.save(self.model.state_dict(), './{}/model.pt'.format(self.args.checkpoints_path))
+        print("Checkpoint saved to '{}'".format(self.args.checkpoints_path))
 
 
 def train(args):
