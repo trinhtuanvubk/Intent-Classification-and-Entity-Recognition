@@ -11,7 +11,7 @@ def infer(args):
     else:
         input_texts = args.sentence
 
-    with open('label_encoder.pkl', 'rb') as f:
+    with open('./label_encoder/label_encoder.pkl', 'rb') as f:
         label_encoder = pickle.load(f)
 
     ckpt = args.checkpoints_path
