@@ -18,10 +18,11 @@ def get_args():
     parser.add_argument('--slots_path', type=str, default="./data/slots.txt", help='Path to the slots list')
     parser.add_argument('--num_epochs', type=int, default=100, help='Number of epochs')
     parser.add_argument('--model_name', type=str, default="bert-base-uncased", help='Model name')
-    parser.add_argument('--embedding_name', type=str, default="bert-base-uncased", help='Model name')
+    parser.add_argument('--embedding_name', type=str, default="bert-base-uncased", help='embedding name')
     parser.add_argument('--batch_size', type=int, default=8, help='Batch size')
     parser.add_argument('--learning_rate', type=float, default=1e-4, help='Learning rate')
-    parser.add_argument('--checkpoints_path', type=str, default="./checkpoints/", help='Shuffle data')
+    parser.add_argument('--checkpoints_path', type=str, default="./checkpoints/", help='checkpoints path')
+    parser.add_argument('--sentence', type=str, default="to check my bill", help='sentence test for inference')
 
     args = parser.parse_args()
     args.device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')

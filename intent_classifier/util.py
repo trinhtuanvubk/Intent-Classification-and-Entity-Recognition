@@ -13,7 +13,8 @@ def get_args():
     parser.add_argument('--batch_size', type=int, default=8, help='Batch size')
     parser.add_argument('--learning_rate', type=float, default=1e-5, help='Learning rate')
     parser.add_argument('--shuffle', action="store_true", help='Shuffle data')
-    parser.add_argument('--checkpoints_path', type=str, default="./checkpoints/", help='Shuffle data')
+    parser.add_argument('--checkpoints_path', type=str, default="./checkpoints/", help='checkpoints path')
+    parser.add_argument('--sentence', type=str, default="to check my bill", help='sentence test for inference')
 
 
     args = parser.parse_args()
