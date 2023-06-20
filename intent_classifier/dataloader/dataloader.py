@@ -1,7 +1,7 @@
 from torch.utils.data import DataLoader
 import json
 from sklearn.preprocessing import LabelEncoder
-
+import pickle
 from .dataset import CustomDataset
 
 
@@ -32,6 +32,10 @@ def intent_loader(args, tokenizer):
     valid_dataset = CustomDataset(valid_data, valid_labels, tokenizer)
     valid_dataloader = DataLoader(valid_dataset, batch_size=args.batch_size)
 
+    # Save the label encoder
+    os.makedirs("./label_encoder/", exist_ok=True)
+    with open('label_encoder/label_encoder.pkl', 'wb') as f:
+        pickle.dump(label_encoder, f)
     return train_dataloader, valid_dataloader, num_labels
 
 
