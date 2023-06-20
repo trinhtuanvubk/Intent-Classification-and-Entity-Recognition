@@ -5,7 +5,7 @@
 - To create Docker environment:
 ```
 docker build -t text-env .
-docker run -itd --restart always -v $(pwd)/:/workspace --name text-env text-env:latest
+docker run -itd --gpus all --restart always -v $(pwd)/:/workspace --name text-env text-env:latest
 docker exec -it text-env bash
 ```
 
