@@ -1,10 +1,11 @@
 import torch
+import os
 from sklearn.metrics import accuracy_score
 from sklearn.preprocessing import LabelEncoder
 from tqdm import tqdm
 from transformers import RobertaTokenizer, RobertaForSequenceClassification
 from dataloader import intent_loader
-
+import pickle
 class Trainer:
 
     def __init__(self, args):
@@ -64,9 +65,14 @@ class Trainer:
 
                 valid_accuracy = accuracy_score(valid_labels, predicted_labels)
                 print(f"Epoch {epoch + 1}/{epoch} - Valid Accuracy: {valid_accuracy:.4f}")
-
-        torch.save(self.model.state_dict(), './{}/model.pt'.format(self.args.checkpoints_path))
+        self.model.save_pretrained('./{}'.format(self.args.checkpoints_path))
+        # torch.save(self.model.state_dict(), './{}/model.pt'.format(self.args.checkpoints_path))
         print("Checkpoint saved to '{}'".format(self.args.checkpoints_path))
+
+        # Save the label encoder
+        # os.makedirs("./label_encoder/", exist_ok=True)
+        # with open('label_encoder/label_encoder.pkl', 'wb') as f:
+            # pickle.dump(label_encoder, f)
 
 
 def train(args):
