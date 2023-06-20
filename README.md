@@ -10,6 +10,7 @@ docker exec -it text-env bash
 ```
 
 ### Intent Clasification
+- Using transformers framework (Huggingface) to finetune Intent Classification task that uses roberta-base as pretrained model
 
 ```bash
 cd intent_classifier/
@@ -27,7 +28,7 @@ cd intent_classifier/
 - To train, run command:
 ```
 python3 main.py --scenario train \
---num_epochs 20 \
+--num_epochs 2 \
 --batch_size 8 \
 --learning_rate 1e-5 \
 --shuffle
@@ -38,7 +39,14 @@ or
 bash run.sh
 ```
 
+- To infer, run command:
+```
+python3 main.py --scenario infer \
+--sentence "type your text here"
+```
+
 ### Entity Recoginition
+- Using Flair framework to finetune NER task that uses bert-base-uncased as pretrained model
 
 ```bash
 cd entity_recognitor
@@ -61,7 +69,7 @@ python3 main.py --scenario convert_data
 - To train, run command:
 ```
 python3 main.py --scenario train \
---num_epochs 50 \
+--num_epochs 2 \
 --batch_size 8 \
 --learning_rate 1e-4 \
 --hidden_size 256
@@ -70,4 +78,10 @@ python3 main.py --scenario train \
 or
 ```bash
 bash run.sh
+```
+
+- To infer, run command:
+```
+python3 main.py --scenario infer \
+--sentence "type your text here"
 ```
