@@ -45,6 +45,21 @@ python3 main.py --scenario infer \
 --sentence "type your text here"
 ```
 
+- To convert model to onnx type, run command:
+
+```
+pip install onnx==1.11.0 onnxruntime-gpu==1.11.1
+```
+
+```
+python3 convert_onxx.py
+```
+
+- To test onnx model, run command:
+```
+python3 test_onnx.py
+```
+
 ### Entity Recoginition
 - Using Flair framework to finetune NER task that uses bert-base-uncased as pretrained model
 
