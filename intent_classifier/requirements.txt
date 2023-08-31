@@ -3,3 +3,5 @@ torch
 scikit-learn==1.2.2
 tqdm
 flair==0.12.2
+onnx==1.11.0
+onnxruntime-gpu==1.11.1
