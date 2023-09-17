@@ -22,6 +22,8 @@ def ner_dataset(args):
     alist = [line.rstrip() for line in open(args.slots_path)]
     for i in alist:
         tag_dictionary.add_item(i)
+    
+    tag_dictionary.save("./tag_dictionary/tag_dictionary.pkl")
 
     return corpus, tag_dictionary
 

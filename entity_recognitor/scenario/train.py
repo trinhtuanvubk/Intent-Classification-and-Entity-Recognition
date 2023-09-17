@@ -1,6 +1,6 @@
 from flair.models import SequenceTagger
 from flair.embeddings import TransformerWordEmbeddings
-from flair.data import Corpus
+from flair.data import Corpus, Dictionary
 from torch.optim.adamw import AdamW
 from flair.trainers import ModelTrainer
 from flair.training_utils import AnnealOnPlateau, Optimizer
@@ -13,6 +13,7 @@ class Trainer:
         self.args = args
 
         self.corpus, self.tag_dictionary = ner_dataset(args)
+        self.tag_dictionary.save("/tag_dictionary/tag_dictionary.pkl")
 
         self.embeddings = TransformerWordEmbeddings(model=args.embedding_name,
                                        layers="-1",
