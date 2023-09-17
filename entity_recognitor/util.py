@@ -3,7 +3,7 @@ import argparse
 import torch
 
 def get_args():
-    parser = argparse.ArgumentParser(description='Train Ner Model')
+    parser = argparse.ArgumentParser(description='Train Entity Model')
     parser.add_argument('--scenario', type=str, default='train')
     parser.add_argument('--tag_type', type=str, default='ner')
     parser.add_argument('--tag_format', type=str, default='BIO')
@@ -21,7 +21,7 @@ def get_args():
     parser.add_argument('--embedding_name', type=str, default="bert-base-uncased", help='embedding name')
     parser.add_argument('--batch_size', type=int, default=8, help='Batch size')
     parser.add_argument('--learning_rate', type=float, default=1e-4, help='Learning rate')
-    parser.add_argument('--checkpoints_path', type=str, default="./checkpoints/", help='checkpoints path')
+    parser.add_argument('--checkpoints_path', type=str, default="./checkpoints_test/", help='checkpoints path')
     parser.add_argument('--sentence', type=str, default="to check my bill", help='sentence test for inference')
 
     args = parser.parse_args()
